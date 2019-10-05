@@ -36,7 +36,7 @@ class KittensController < ApplicationController
   end
 
   def update
-    if @kitten.update_attributes(params[:kitten])
+    if @kitten.update_attributes(kitten_params)
       flash[:success] = "Kitten was successfully updated"
       redirect_to @kitten
     else
@@ -47,6 +47,7 @@ class KittensController < ApplicationController
   def destroy
     @kitten.destroy
     flash[:success] = "Kitten has been deleted."
+    redirect_to root_url
   end
 
   private
